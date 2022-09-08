@@ -12,35 +12,13 @@
  * edit it directly.
  */
 
-#include <nordic / nrf52833_qiaa.dtsi>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
-& flash0 {
-  partitions {
-    compatible = "fixed-partitions";
-    # address-cells = <1>;
-    # size-cells = <1>;
-
-    sd_partition: partition @ 0 {
-      label = "mbr";
-      reg = <0x00000000 0x00001000>;
-    };
-
-    code_partition: partition @ 1000 {
-      label = "code_partition";
-      reg = <0x00001000 0x0006b000>;
-    };
-
-    storage_partition: partition @ 6c000 {
-      label = "storage";
-      reg = <0x0006c000 0x00008000>;
-    };
-
-    boot_partition: partition @ 74000 {
-      label = "adafruit_boot";
-      reg = <0x00074000 0x0000c000>;
-    };
-  };
-};
+/ {
+    keymap {
+        compatible = "zmk,keymap";
 
 
 
